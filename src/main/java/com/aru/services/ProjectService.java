@@ -3,6 +3,7 @@ package com.aru.services;
 import com.aru.models.Chat;
 import com.aru.models.Project;
 import com.aru.models.User;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
