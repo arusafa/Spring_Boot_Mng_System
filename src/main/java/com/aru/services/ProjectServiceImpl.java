@@ -3,7 +3,6 @@ package com.aru.services;
 import com.aru.models.Chat;
 import com.aru.models.Project;
 import com.aru.models.User;
-import com.aru.repositories.ChatRepository;
 import com.aru.repositories.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -80,7 +79,6 @@ public class ProjectServiceImpl implements ProjectService{
         getProjectById(projectId);
         //userService.findUserById(userId);
         projectRepository.deleteById(projectId);
-
     }
 
     @Override
@@ -126,5 +124,11 @@ public class ProjectServiceImpl implements ProjectService{
 
         Project project = getProjectById(projectId);
         return project.getChat();
+    }
+
+    @Override
+    public List<Project> searchProjects(String keyword, User user) throws Exception {
+
+        return projectRepository.findByNameContainingAndTeamContains(keyword, user);
     }
 }
