@@ -1,6 +1,7 @@
 package com.aru.services;
 
 import com.aru.models.User;
+import org.springframework.stereotype.Service;
 
 public interface UserService {
 
@@ -11,6 +12,5 @@ public interface UserService {
     User findUserById(Long userId) throws Exception;
 
     User updateUsersProjectSize(User user, int number) throws Exception;
-
 
 }

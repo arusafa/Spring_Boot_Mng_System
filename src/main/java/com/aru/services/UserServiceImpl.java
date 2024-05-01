@@ -4,9 +4,11 @@ import com.aru.configuration.JwtProvider;
 import com.aru.models.User;
 import com.aru.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Service
 public class UserServiceImpl implements UserService{
 
     @Autowired
