@@ -29,7 +29,7 @@ public class ProjectController {
     @Autowired
     private InvitationService invitationService;
 
-    @GetMapping
+    @GetMapping("/user ")
     public ResponseEntity<List<Project>>getProjects(
             @RequestParam(required = false)String category,
             @RequestParam(required = false)String tag,
