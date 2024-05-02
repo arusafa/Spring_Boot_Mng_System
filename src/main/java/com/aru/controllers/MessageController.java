@@ -1,11 +1,15 @@
 package com.aru.controllers;
 
+import com.aru.models.Chat;
 import com.aru.models.Message;
+import com.aru.models.User;
+import com.aru.requests.CreateMessageRequest;
 import com.aru.services.MessageService;
 import com.aru.services.ProjectService;
 import com.aru.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,7 +27,32 @@ public class MessageController {
     @Autowired
     private ProjectService projectService;
 
-    public ResponseEntity <Message> sendMessage (@RequestBody CreateMessageRequest createMessageRequest) throws Exception {
-        return null;
+    @PostMapping("/send")
+    public ResponseEntity <Message> sendMessage
+            (@RequestBody CreateMessageRequest messageRequest)
+            throws Exception {
+
+        User user = userService.findUserById(messageRequest.getSenderId());
+
+        if (user == null) {
+            throw new Exception("User not found with " + messageRequest.getSenderId());
+        }
+
+        Chat chats = projectService.getProjectById(messageRequest.getProjectId()).getChat();
+
+        if (chats == null) {
+            throw new Exception("Chat is not found!");
+        }
+
+        Message sentMessage = messageService.sendMessage
+                (
+                messageRequest.getSenderId(),
+                messageRequest.getProjectId(),
+                messageRequest.getContent()
+                );
+
+        return ResponseEntity.ok(sentMessage);
     }
+
+
 }
