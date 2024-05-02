@@ -4,7 +4,6 @@ import com.aru.models.Issue;
 import com.aru.models.IssueDTO;
 import com.aru.models.User;
 import com.aru.requests.IssueRequest;
-import com.aru.responses.AuthResponse;
 import com.aru.responses.MessageResponse;
 import com.aru.services.IssueService;
 import com.aru.services.UserService;
@@ -95,11 +94,5 @@ public class IssueController {
         Issue issue = issueService.updateStatus(issueId,status);
         return ResponseEntity.ok(issue);
     }
-
-
-
-
-
-
 
 }
