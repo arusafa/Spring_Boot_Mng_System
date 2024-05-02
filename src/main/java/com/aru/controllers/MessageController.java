@@ -8,6 +8,7 @@ import com.aru.services.MessageService;
 import com.aru.services.ProjectService;
 import com.aru.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -53,7 +54,15 @@ public class MessageController {
     public ResponseEntity <List<Message>> getMessagesByChatId
             (@PathVariable Long projectId) throws Exception {
 
-        List <Message> messages = messageService.getMessagesByProjectId(projectId);
+        Chat chat = projectService.getChatByProjectId(projectId);
+
+        if (chat == null) {
+            // Log error or handle case where chat is null
+            System.out.println("Chat object is null for project ID: " + projectId);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+
+        List<Message> messages = messageService.getMessagesByProjectId(projectId);
         return ResponseEntity.ok(messages);
     }
 }
