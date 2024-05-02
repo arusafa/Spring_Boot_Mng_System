@@ -33,10 +33,6 @@ public class MessageController {
 
         User user = userService.findUserById(messageRequest.getSenderId());
 
-        if (user == null) {
-            throw new Exception("User not found with " + messageRequest.getSenderId());
-        }
-
         Chat chats = projectService.getProjectById(messageRequest.getProjectId()).getChat();
 
         if (chats == null) {
@@ -60,6 +56,8 @@ public class MessageController {
         List <Message> messages = messageService.getMessagesByProjectId(projectId);
         return ResponseEntity.ok(messages);
     }
+
+
 
 
 }
