@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.aru</groupId>
-	<artifactId>projectmanagementsystem</artifactId>
+	<artifactId>project-management-system</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>project management system</name>
+	<name>project-management-system</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
