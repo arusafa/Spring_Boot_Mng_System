@@ -56,8 +56,4 @@ public class MessageController {
         List <Message> messages = messageService.getMessagesByProjectId(projectId);
         return ResponseEntity.ok(messages);
     }
-
-
-
-
 }
