@@ -3,6 +3,6 @@ COPY . .
 RUN mvn clean package -DskipTests
 
 FROM openjdk:17.0.1-jdk-slim
-COPY --from=build /target/project management system-0.0.1-SNAPSHOT.jar project management system.jar/
+COPY --from=build /target/projectmanagementsystem-0.0.1-SNAPSHOT.jar projectmanagementsystem.jar
 EXPOSE 5454
-ENTRYPOINT ["java","-jar","project management system.jar"]
+ENTRYPOINT ["java","-jar","projectmanagementsystem.jar"]
