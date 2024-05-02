@@ -46,7 +46,7 @@ public class PaymentController {
 
             JSONObject paymentLinkRequest = new JSONObject();
             paymentLinkRequest.put("amount",amount);
-            paymentLinkRequest.put("currency","INR");
+            paymentLinkRequest.put("currency","USD");
 
             JSONObject customer = new JSONObject();
             customer.put("name",user.getFullName());
