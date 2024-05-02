@@ -82,11 +82,11 @@
 			<artifactId>spring-boot-starter-mail</artifactId>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/com.razorpay/razorpay-java -->
+		<!-- https://www.baeldung.com/java-stripe-api-->
 		<dependency>
-			<groupId>com.razorpay</groupId>
-			<artifactId>razorpay-java</artifactId>
-			<version>1.4.6</version>
+			<groupId>com.stripe</groupId>
+			<artifactId>stripe-java</artifactId>
+			<version>4.2.0</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.json/json -->
