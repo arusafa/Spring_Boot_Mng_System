@@ -35,6 +35,7 @@ public class IssueController {
         return ResponseEntity.ok(issueService.getIssuedByProjectId(projectId));
     }
 
+    @PostMapping
     public ResponseEntity<IssueDTO> createIssue(
             @RequestBody IssueRequest issueRequest,
             @RequestHeader("Authorization") String token
