@@ -9,10 +9,9 @@ import com.aru.services.ProjectService;
 import com.aru.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/messages")
@@ -52,6 +51,14 @@ public class MessageController {
                 );
 
         return ResponseEntity.ok(sentMessage);
+    }
+
+    @GetMapping("/chat/{projectId}")
+    public ResponseEntity <List<Message>> getMessagesByChatId
+            (@PathVariable Long projectId) throws Exception {
+
+        List <Message> messages = messageService.getMessagesByProjectId(projectId);
+        return ResponseEntity.ok(messages);
     }
 
 
